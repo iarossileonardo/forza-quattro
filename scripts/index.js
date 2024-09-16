@@ -14,7 +14,9 @@ function creazioneTabella(){
             element.classList.add('dimensioni');
             element.classList.add('bordi');
             element.classList.add('casella');
-            element.id = num;
+            element.id = `${i}-${j}`;
+            if(element.id.substring(0, 1) !== 5)
+                element.classList.add('sospesa');
             if(i === 6){
                 element.style.backgroundColor = 'white'
                 element.id = btnNum;
@@ -37,7 +39,23 @@ function creazioneTabella(){
 
 function gestisciSel(id){
     console.log('click' + id);
-    let caselle = document.querySelectorAll('casella')
+    let caselle = document.querySelectorAll('.casella');
+    caselle = Array.from(caselle);
+    caselle = caselle.filter(caselle => caselle.id.slice(-1) === id);
+    caselle.splice(6, 1)
+    console.log(caselle);
+    for(let i = 5; i > -1; i--){
+        if((!caselle[i].classList.contains('presa')) && (!caselle[i].classList.contains('sospesa'))){
+            caselle[i].style.backgroundColor = document.querySelector('body').style.backgroundColor;
+            cambiaGiocatore();
+            caselle[i].classList.add('presa');
+            if(i > 0){
+                caselle[i - 1].classList.remove('sospesa');
+            }
+            break;
+        }
+
+    }
 }
 
 function cambiaGiocatore(){
