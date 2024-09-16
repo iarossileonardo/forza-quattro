@@ -1,10 +1,11 @@
 .dimensioni{
     width: 20px;
-    height: 20px;
+    height: 60px;
 }
 
 .bordi{
     border-collapse: collapse;
     border-color: solid black;
     border-width: 1px;
+    background-color: black;
 }
