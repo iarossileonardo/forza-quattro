@@ -50,17 +50,19 @@ function gestisciSel(id){
             if(i > 0){
                 caselle[i - 1].classList.remove('sospesa');
             }
+            
+            controlloVittoria();
             break;
         }
 
     }
-    controlloVittoria()
     cambiaGiocatore();
 }
 
-function controlloVittoria(){
-    
+function controlloVittoria(riga, colonna, colore) {
+    //TODO
 }
+
 
 function cambiaGiocatore(){
     const body = document.querySelector('body');
